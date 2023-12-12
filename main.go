@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"OnlineVideo/router"
+	"OnlineVideo/utils"
+)
 
 func main() {
-	fmt.Printf("Hello,it's me MihuGhost!!")
+	utils.InitMySQL()
+	r := router.Router()
+	r.Run(":8080")
 }
