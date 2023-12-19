@@ -31,3 +31,13 @@ func FindUserByName(name string) User {
 func CreateUser(user User) *gorm.DB {
 	return utils.DB.Create(&user)
 }
+
+func DeleteUser(user User) *gorm.DB {
+	return utils.DB.Delete(&user)
+}
+
+func UpdateUser(user User) *gorm.DB {
+	return utils.DB.Model(&user).Updates(User{Name: user.Name,
+		Password: user.Password, Phone: user.Phone,
+		Email: user.Email})
+}
